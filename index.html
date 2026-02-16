@@ -680,7 +680,7 @@
             <p style="font-size: 1.1rem; margin: 0;"> 
                 $$\Phi(\mathbf{y}_{\le k})=\frac{1}{k} \sum_{i=1}^{k} \log \pi_\theta \bigl( y_i \mid \mathbf{y}_{\lt i}, \mathbf{x} \bigr)$$ 
             </p> 
-      </div>
+    </div>
       <p>
         Where $y_{\leq k}$ is the reasoning chain up to step $k$, $\phi$ is the next-token log-probability, and $\pi_\theta$ is the model's policy. This score captures the model's overall confidence in a reasoning path—critical for identifying high-quality, concise chains.
       </p>
@@ -726,11 +726,11 @@
         </p>
       </div>
       
-      <!-- SAGE vs Beam Search -->
+      <!-- SAGE vs Beam Search
       <h4 class="subsection-title">SAGE vs Vanilla Beam Search</h4>
       <p>
         While SAGE builds on beam search principles, it differs fundamentally: beam search discards high-confidence termination paths in later steps, while SAGE <strong>accepts termination immediately</strong> when the model signals confidence. SAGE achieves <strong>+7% accuracy</strong> with <strong>33% fewer tokens</strong> than beam search on DS-1.5B (MATH-500 subset).
-      </p>
+      </p> -->
     </div>
   </div>
 </section>
@@ -816,12 +816,8 @@
         We conduct comprehensive ablation studies to understand SAGE-RL's key components and their impact on performance:
       </p>
       
-      <!-- Ablation 1: SAGE Sampling Ratio -->
-      <h4 class="subsection-title">Ablation 1: Optimal SAGE Sampling Ratio</h4>
-      <p>
-        We vary the number of SAGE samples ($r$) in the rollout set ($G=8$) and find that $r=2$ (25% SAGE samples) achieves the best balance of accuracy and efficiency. Higher ratios ($r=4$) overfit to efficient patterns, while lower ratios ($r=1$) don't provide enough efficient reasoning examples.
-      </p>
-      
+
+    <!-- Ablation 1: Optimal SAGE Sampling Ratio -->
       <div class="figure-container">
         <center><img src="./static/images/ab_dynamic.png" alt="SAGE Sampling Ratio Ablation" style="max-width: 80%;"></center>
         <!-- <p class="figure-caption">
@@ -834,18 +830,20 @@
           <strong>Ablation on SAGE Sampling Ratio (G=8).</strong> $r=2$ (25% SAGE samples) achieves the highest token efficiency, balancing efficient reasoning patterns with exploration.
         </p>
       </div>
+    <p>
+    Through experiments, we investigated the impact of different hyperparameter combinations on SAGE-RL performance and obtained the following key findings:
+    </p>
+    <p>
+    When the number of rollouts per group \( r \) increases from 1 to 2, the model performance improvement is limited with minimal impact on policy updates, as rollouts with similar reasoning trajectories cannot provide additional valid information.
+    </p>
+    <p>
+    When the exploration width \( m \) increases from 1 to 2, the model achieves significant improvements in both performance and efficiency. A limited \( m \) causes SAGE-RL's optimization behavior to approach standard GRPO, confirming the critical role of exploration width in activating the model's efficient reasoning capability.
+    </p>
+    <p>
+    Among different hyperparameter combinations, SAGE (2,2)-GRPO demonstrates the optimal overall performance, representing a favorable balance between performance and exploration efficiency.
+    </p>
       
-      <!-- Ablation 2: SAGE Step Budget -->
-      <h4 class="subsection-title">Ablation 2: SAGE Step Budget</h4>
-      <p>
-        The step budget $m$ in SAGE($m,r$) controls exploration depth. We find that $m=4$ steps per candidate sequence provides sufficient exploration to discover high-quality efficient reasoning chains without excessive computational overhead.
-      </p>
-      
-      <!-- Ablation 3: RLVR Algorithm Choice -->
-      <h4 class="subsection-title">Ablation 3: RLVR Algorithm Comparison</h4>
-      <p>
-        SAGE-RL works with both GRPO and GSPO, with GSPO slightly outperforming GRPO due to its sequence-level importance sampling that avoids token-level clipping. However, the relative improvement from SAGE is consistent across both algorithms.
-      </p>
+
     </div>
   </div>
 </section>
