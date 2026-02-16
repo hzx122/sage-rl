@@ -675,9 +675,10 @@
       <p>
         SAGE's core is the <strong>average cumulative log-probability score</strong> that measures the model's confidence in an entire reasoning chain (not just the next token):
       </p>
+      <!-- 关键问题在于 \mathbf{y}_{<i} 中的 < 字符。在 HTML 中，< 是一个特殊字符，用于开始 HTML 标签，浏览器会尝试将其解析为 HTML 标签的开始，而不是数学公式的一部分。 -->
       <div class="formula-box"> 
         <p style="font-size: 1.1rem; margin: 0;"> 
-          $$ \Phi(\mathbf{y}_{\le k})=\frac{1}{k} \sum_{i=1}^{k} \log \pi_\theta \bigl( y_i \mid \mathbf{y}_{<i}, \mathbf{x} \bigr). $$ 
+            $$\Phi(\mathbf{y}_{\le k})=\frac{1}{k} \sum_{i=1}^{k} \log \pi_\theta \bigl( y_i \mid \mathbf{y}_{\&lt;i}, \mathbf{x} \bigr)$$ 
         </p> 
       </div>
       <p>
