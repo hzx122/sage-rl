@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Does your reasoning model implicitly know when to stop thinking ?">
+        content="Recent advancements in large reasoning models (LRMs) have greatly improved their capabilities on complex reasoning tasks through long Chains of Thought (CoTs). However, this approach often results in substantial redundancy, impairing computational efficiency and causing significant delays in real-time applications. Recent studies show that longer reasoning chains are frequently uncorrelated with correctness and can even be detrimental to accuracy. In a further in-depth analysis of this phenomenon, we surprisingly uncover and empirically verify that LRMs implicitly know the appropriate time to stop thinking, while this capability is obscured by current sampling paradigms. Motivated by this, we introduce SAGE (Self-Aware Guided Efficient Reasoning), a novel sampling paradigm that unleashes this efficient reasoning potential. Furthermore, integrating SAGE as mixed sampling into group-based reinforcement learning (SAGE-RL) effectively incorporates SAGE-discovered efficient reasoning patterns into standard pass@1 inference, markedly enhancing both the reasoning accuracy and efficiency of LRMs across multiple challenging mathematical benchmarks.">
   <meta name="keywords" content="LLM, Reasoning, Reinforcement Learning, Efficient Reasoning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Does your reasoning model implicitly know when to stop thinking ?</title>
@@ -432,24 +432,28 @@
           
           <!-- Authors Section -->
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="https://github.com/hzx122">Zixuan Huang</a><sup>*,1</sup>,</span>
-            <span class="author-block"><a href="https://scholar.google.com/citations?user=SU6ooAQAAAAJ">Guanning Zeng</a><sup>*,2</sup>,</span>
-            <span class="author-block"><a href="https://zhouyueer7.github.io/">Yueer Zhou</a><sup>3</sup>,</span>
-            <span class="author-block"><a href="https://yudasong.github.io/">Yuda Song</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://daman1209arora.github.io/">Daman Arora</a><sup>1</sup>,</span><br>
-            <span class="author-block"><a href="https://yidingjiang.github.io/">Yiding Jiang</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://www.cs.cmu.edu/~schneide/">Jeff Schneider</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://havenfeng.github.io/">Haiwen Feng</a><sup>4,5</sup>,</span>
-            <span class="author-block"><a href="https://azanette.com">Andrea Zanette</a><sup>1</sup></span>
+            <span class="author-block"><a href="https://github.com/hzx122">Zixuan Huang</a><sup>1</sup></span>,
+            <span class="author-block">Xin Xia<sup>2</sup></span>,
+            <span class="author-block">Yuxi Ren<sup>2</sup></span>,
+            <span class="author-block">Jianbin Zheng<sup>2</sup></span>,
+            <span class="author-block">Xuanda Wang<sup>2</sup></span>,
+            <span class="author-block">Zhixia Zhang<sup>1</sup></span>,
+            <span class="author-block">Hongyan Xie<sup>1</sup></span>,<br>
+            <span class="author-block">Songshi Liang<sup>2</sup></span>,
+            <span class="author-block">Zehao Chen<sup>1</sup></span>,
+            <span class="author-block">Xuefeng Xiao<sup>2</sup></span>,
+            <span class="author-block">Fuzhen Zhuang<sup>1</sup></span>,
+            <span class="author-block">Jianxin Li<sup>1</sup></span>,
+            <span class="author-block"><a href="">Yikun Ban</a><sup>1</sup></span>,
+            <span class="author-block">deqing wang<sup>1</sup></span>
           </div>
           <div class="is-size-6 publication-authors" style="margin-top: 0.4rem;">
-            <span class="author-block"><sup>1</sup>CMU</span>
-            <span class="author-block" style="margin-left: 0.8em;"><sup>2</sup>Tsinghua University</span>
-            <span class="author-block" style="margin-left: 0.8em;"><sup>3</sup>Zhejiang University</span>
+            <span class="author-block"><sup>1</sup>Beihang University</span>
+            <!-- <span class="author-block" style="margin-left: 0.8em;"><sup>2</sup>Bytedance China</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>3</sup>Bytedance China</span>
             <span class="author-block" style="margin-left: 0.8em;"><sup>4</sup>UC Berkeley</span>
-            <span class="author-block" style="margin-left: 0.8em;"><sup>5</sup>Impossible, Inc.</span>
-            <span class="author-block" style="margin-left: 0.8em;"><sup>*</sup>Equal Contribution</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>5</sup>Impossible, Inc.</span> -->
+            <span class="author-block" style="margin-left: 0.8em;"><sup>*</sup></span>
           </div>
 
           <div class="has-text-centered" style="margin-top: 0.8rem;">
