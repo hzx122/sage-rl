@@ -553,7 +553,7 @@
       
       <!-- RFCS Metric -->
       <div class="result-card" style="margin-top: 1.5rem;">
-      <h4 class="subsection-title">RPass@1: Existing sampling strategies fail to enable timely termination of thinking.</h4>
+      <h4 class="subsection-title">Pass@1: Existing sampling strategies fail to enable timely termination of thinking.</h4>
       <p>
         To quantify this redundancy, we define the <strong>RFCS</strong> metric: the step index of the first correct answer divided by the total number of reasoning steps. For over half of MATH-500 samples across all tested LRMs (DS-1.5B, DeepScaleR, Qwen3-8B), RFCS &lt; 1—meaning the model finds the correct answer early but continues reasoning unnecessarily.
       </p>
@@ -573,11 +573,12 @@
         </p>
       </div>
       
+      </div>
+
       <div class="insight-box">
         <p style="margin: 0;">
-          Current sampling paradigms (pass@1) obscure the LRM's inherent ability to recognize when to stop thinking. The model <em>knows</em> the optimal stopping point—it just can't act on it under standard inference.
+          In summary, the surprising performance of relatively shorter responses in pass@k reveals the inherent potential of the model for efficient reasoning. The pervasive redundancy of reasoning steps in pass@1 indicates that current sampling paradigms obscure this potential.
         </p>
-      </div>
       </div>
 
 
