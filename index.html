@@ -625,7 +625,7 @@
       <div class="result-card" style="border-left: 4px solid var(--sage-blue); padding: 1.5rem; margin-top: 1.5rem;">
         <h4 style="color: var(--sage-blue); margin-bottom: 0.5rem;">Observation 2: High-Confidence Paths Have Confident Ends</h4>
         <p>
-          The termination token ($$) consistently ranks <strong>1st</strong> in high-confidence paths (selected by $\Phi$) when it appears, meaning the model is highly confident in stopping. For next-token selected paths, the termination token's rank increases with exploration—showing uncertainty. Greedy/random sampling misses these short, high-confidence chains.
+          The eot (end of thinking) token consistently ranks <strong>1st</strong> in high-confidence paths (selected by $\Phi$) when it appears, meaning the model is highly confident in stopping reasoning. For next-token selected paths, the eot token's rank increases with exploration  width, showing greater uncertainty to stop thinking. Greedy/random sampling misses these short, high-confidence chains.
         </p>
         <div class="figure-container" style="margin-top: 1rem; margin-bottom: 0;"> 
             <div style="display: flex; justify-content: center; gap: 1rem; width: 100%;">
@@ -645,7 +645,7 @@
       <div class="result-card" style="border-left: 4px solid var(--sage-blue); padding: 1.5rem; margin-top: 1.5rem;">
         <h4 style="color: var(--sage-blue); margin-bottom: 0.5rem;">Observation 3: Scaling Exploration Drives Capability Convergence</h4>
         <p>
-          As exploration width increases, LRMs converge to <strong>higher accuracy with shorter responses</strong>, with token efficiency (accuracy/length) rising sharply. This convergence is universal across models (DS-1.5B, DeepScaleR) and datasets (MATH-500, AMC23), proving the model's inherent efficient reasoning capability.
+          As exploration width increases, LRMs converge to <strong>higher accuracy with shorter responses</strong>, with token efficiency (accuracy/length) rising gradually. This convergence is universal across models (DS-1.5B, DeepScaleR) and datasets (MATH-500, AMC23), proving the model's universal inherent efficient reasoning capability.
         </p>
         <div class="figure-container" style="margin-top: 1rem; margin-bottom: 0;">
             <center><img src="./static/images/SAGE_dif_BW-1.png" alt="Capability Convergence" style="max-width: 80%;"></center>
