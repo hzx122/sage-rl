@@ -774,12 +774,6 @@
         <p style="font-size: 0.95rem; margin: 0; line-height: 1.8;">
           $$\mathcal{J}_{SAGE-GRPO }(\theta)=\mathbb{E}\left[\frac{1}{G}\left(\underbrace{\sum_{i=1}^{r} \frac{1}{|y_{i}|} \sum_{t=1}^{|y_{i}|} min \left(w_{i,t}\hat{A}_{i,t}, clip(w_{i,t}) \hat{A}_{i,t}\right)}_{SAGE(m,r)}+\underbrace{\sum_{i=r+1}^{G} \frac{1}{|y_{i}|} \sum_{t=1}^{|y_{i}|} min \left(w_{i,t}\hat{A}_{i,t}, clip(w_{i,t}) \hat{A}_{i,t}\right)}_{Random Sampling }\right)\right]$$
         </p>
-        <p style="font-size: 0.95rem; margin: 0; line-height: 1.8;">
-          $\begin{aligned}
-          \mathcal{J}_{SAGE-GSPO }(\theta)=\mathbb{E}_{x \sim \mathcal{D},\left\{y_{i}\right\}_{i=1}^{G} \sim \pi_{\theta_{old }}(\cdot | x)}\left[ \frac{1}{G}\left(\underbrace{\sum_{i=1}^{r} min \left(s_{i}(\theta) \hat{A}_{i}, clip\left(s_{i}(\theta), 1-\varepsilon, 1+\varepsilon\right) \hat{A}_{i}\right)}_{SAGE(m, r)}\right.\\
-          \left.+ \underbrace{\sum_{i=r+1}^{G} min \left(s_{i}(\theta) \hat{A}_{i}, clip\left(s_{i}(\theta), 1-\varepsilon, 1+\varepsilon\right) \hat{A}_{i}\right)}_{Random Sampling }\right) \right]
-          \end{aligned}$
-        </p>
       </div>
       <p>
         Where $w_{i,t}$ is the token-level importance ratio, $\hat{A}_{i,t}$ is the advantage, and $G=8$, $r=2$ (our default) balances efficiency and exploration.
