@@ -774,6 +774,12 @@
         <p style="font-size: 0.95rem; margin: 0; line-height: 1.8;">
           $$\mathcal{J}_{SAGE-GRPO }(\theta)=\mathbb{E}\left[\frac{1}{G}\left(\underbrace{\sum_{i=1}^{r} \frac{1}{|y_{i}|} \sum_{t=1}^{|y_{i}|} min \left(w_{i,t}\hat{A}_{i,t}, clip(w_{i,t}) \hat{A}_{i,t}\right)}_{SAGE(m,r)}+\underbrace{\sum_{i=r+1}^{G} \frac{1}{|y_{i}|} \sum_{t=1}^{|y_{i}|} min \left(w_{i,t}\hat{A}_{i,t}, clip(w_{i,t}) \hat{A}_{i,t}\right)}_{Random Sampling }\right)\right]$$
         </p>
+        <p style="font-size: 0.95rem; margin: 0; line-height: 1.8;">
+          $$
+          \mathcal{J}_{SAGE-GSPO }(\theta)=\mathbb{E}_{x \sim \mathcal{D},\left\{y_{i}\right\}_{i=1}^{G} \sim \pi_{\theta_{old }}(\cdot | x)}[ & \frac{1}{G}(\underbrace{\sum_{i=1}^{r} min \left(s_{i}(\theta) \hat{A}_{i}, clip\left(s_{i}(\theta), 1-\varepsilon, 1+\varepsilon\right) \hat{A}_{i}\right)}_{SAGE(m, r)}+ \\
+          & \underbrace{\sum_{i=r+1}^{G} min \left(s_{i}(\theta) \hat{A}_{i}, clip\left(s_{i}(\theta), 1-\varepsilon, 1+\varepsilon\right) \hat{A}_{i}\right)}_{Random Sampling }) ]
+          $$
+        </p>
       </div>
       <p>
         Where $w_{i,t}$ is the token-level importance ratio, $\hat{A}_{i,t}$ is the advantage, and $G=8$, $r=2$ (our default) balances efficiency and exploration.
@@ -909,12 +915,14 @@
     
     <div class="content has-text-justified">
       <div class="bibtex-box">
-        <pre><code>@inproceedings{huang2026sage,
-  title={Does Your Reasoning Model Implicitly Know When to Stop Thinking?},
-  author={Huang, Zixuan and Xia, Xin and Ren, Yuxi and Zheng, Jianbin and Wang, Xuanda and Zhang, Zhixia and Xie, Hongyan and Liang, Songshi and Chen, Zehao and Xiao, Xuefeng and Zhuang, Fuzhen and Li, Jianxin and Ban, Yikun and Wang, Deqing},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2026}
-}</code></pre>
+        <pre><code>
+          @article{huang2026does,
+            title={Does Your Reasoning Model Implicitly Know When to Stop Thinking?},
+            author={Huang, Zixuan and Xia, Xin and Ren, Yuxi and Zheng, Jianbin and Wang, Xuanda and Zhang, Zhixia and Xie, Hongyan and Liang, Songshi and Chen, Zehao and Xiao, Xuefeng and others},
+            journal={arXiv preprint arXiv:2602.08354},
+            year={2026}
+          }
+        </code></pre>
       </div>
     </div>
   </div>
